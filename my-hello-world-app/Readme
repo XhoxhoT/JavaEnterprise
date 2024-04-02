@@ -1,0 +1,10 @@
+Komanda e perdorur per te ndertuar aplikacionin
+
+mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-hello-world-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+
+Komanda per te egzekutuar programin : java -cp target/my-hello-world-app-1.0-SNAPSHOT.jar com.mycompany.app.App
+
+
+komanda per te bere push ne git : git remote add origin git@github.com:XhoxhoT/JavaEnterprise.git
+
+cd
