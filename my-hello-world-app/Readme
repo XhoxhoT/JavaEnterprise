@@ -5,6 +5,8 @@ mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-hello-world-a
 Komanda per te egzekutuar programin : java -cp target/my-hello-world-app-1.0-SNAPSHOT.jar com.mycompany.app.App
 
 
-komanda per te bere push ne git : git remote add origin git@github.com:XhoxhoT/JavaEnterprise.git
+komanda per te bere push ne git :
+1 git remote add origin git@github.com:XhoxhoT/JavaEnterprise.git
+2.git push origin master
 
-cd
+
