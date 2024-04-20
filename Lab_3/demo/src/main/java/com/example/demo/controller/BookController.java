@@ -34,7 +34,7 @@ public class BookController {
 
     @GetMapping(params = {"title"})
     public ResponseEntity<Collection<Book>> findBookWithName(@RequestParam(value = "title") String title) {
-        return new ResponseEntity<>(repository.findByName(title), HttpStatus.OK);
+        return new ResponseEntity<>(repository.findByTitle(title), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
