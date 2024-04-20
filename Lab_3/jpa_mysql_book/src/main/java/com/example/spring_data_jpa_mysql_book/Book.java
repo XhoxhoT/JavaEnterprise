@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.example.spring_data_jpa_mysql_book;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,29 +7,41 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Book {
-//    test
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
     private String title;
     private String author;
 
-    public Book(String id, String title, String author) {
+    public Book() {
+    }
+
+    public Book(Long id, String title, String author) {
         this.id = id;
         this.title = title;
         this.author = author;
     }
 
-    public Book(){
-
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
     }
 
-    public String getId() {
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                '}';
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -48,13 +60,5 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", author=" + author +
-                '}';
-    }
 }
+

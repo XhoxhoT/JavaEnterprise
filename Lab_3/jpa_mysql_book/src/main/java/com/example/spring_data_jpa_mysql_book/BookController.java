@@ -1,7 +1,5 @@
-package com.example.demo.controller;
+package com.example.spring_data_jpa_mysql_book;
 
-import com.example.demo.entity.Book;
-import com.example.demo.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,9 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.Optional;
 
+
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/books")
 public class BookController {
+
 
     @Autowired
     private BookRepository repository;
@@ -32,9 +32,9 @@ public class BookController {
         return new ResponseEntity<Book>(repository.findById(id).get(), HttpStatus.OK);
     }
 
-    @GetMapping(params = {"title"})
-    public ResponseEntity<Collection<Book>> findBookWithName(@RequestParam(value = "title") String title) {
-        return new ResponseEntity<>(repository.findByName(title), HttpStatus.OK);
+    @GetMapping(params = {"author"})
+    public ResponseEntity<Collection<Book>> findBookWithName(@RequestParam(value = "author") String author) {
+        return new ResponseEntity<>(repository.findByAuthor(author), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
@@ -42,8 +42,8 @@ public class BookController {
 
         Optional<Book> currentBookOpt = repository.findById(id);
         Book currentBook = currentBookOpt.get();
-        currentBook.setTitle(book.getTitle());
         currentBook.setAuthor(book.getAuthor());
+        currentBook.setTitle(book.getTitle());
 
         return new ResponseEntity<>(repository.save(currentBook), HttpStatus.OK);
     }
@@ -58,3 +58,4 @@ public class BookController {
         repository.deleteAll();
     }
 }
+
