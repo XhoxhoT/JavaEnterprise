@@ -1,0 +1,8 @@
+#Spring Boot + Spring Data JPA + MySQL Project
+
+#Using the commands below to run a MYSQL as a container using image mysql:8.1
+docker run --name db_library -p 3306:3306 -e MYSQL_USER=root -e MYSQL_PASSSWORD=root -e MYSQL_ROOT_PASSWORD=root
+-e MYSQL_DATABASE=book -d mysql:8.1
+
+#Shell access the MYSQL Container using the command :
+docker exec-it db_library mysql -uroot -p
